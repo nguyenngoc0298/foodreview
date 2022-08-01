@@ -1,0 +1,12 @@
+/* ================================
+===  BACKGROUND SLIDER        ====
+================================= */
+
+$.vegas('slideshow', {
+	delay:7000,
+	backgrounds:[
+		{ src:'//bizweb.dktcdn.net/100/053/074/themes/67956/assets/slide-1.jpg?1501637990861', fade:1000 },
+		{ src:'//bizweb.dktcdn.net/100/053/074/themes/67956/assets/slide-2.jpg?1501637990861', fade:1000 },
+		{ src:'//bizweb.dktcdn.net/100/053/074/themes/67956/assets/slide-3.jpg?1501637990861', fade:1000 }
+	]
+});

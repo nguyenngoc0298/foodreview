@@ -1,0 +1,228 @@
+
+<html>
+    <head>
+        <meta charset="windows-1258">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="meat2.js"></script>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+            #d2 {
+                width: 100%;
+                height: 40px;
+                background-color: black;
+                font-size: 18px;
+                padding-top: 9px;
+                padding-left: 20px;
+                box-sizing: border-box;
+                float: left;
+                position: fixed;
+                top: 0px;
+            }
+            #d2 a {
+                text-decoration: none;
+                color: grey;
+                float: left;
+                box-sizing: border-box;
+            }
+            #d2 p {
+                color: gray;
+                float: left;
+                margin-left: 20px;
+                margin-top: 0px;
+                color: white;
+                box-sizing: border-box;
+                font-style: italic;
+            }
+            #d3 {
+                padding-top: 45px;
+                width: 100%;
+                height: 260px;
+                float: left;
+                box-sizing: border-box;
+                text-align: center;
+                font-size: 26px;
+            }#d3 p {
+                margin-top: 22px;
+            }
+            .c31 {
+                margin-top: 5px;
+                width: 28%;
+                height: 80px;
+                float: left;
+                box-sizing: border-box;
+                border: 4px solid grey;
+                margin-left: 20.5%;
+                margin-right: 1%;
+                cursor: pointer;
+            }
+            .c31:hover {transform: scale(1.1, 1.1)}
+            .c32 {      
+                margin-top: 5px;
+                width: 28%;
+                height: 80px;
+                float: left;
+                box-sizing: border-box;
+                border: 4px solid grey;
+                margin-left: 1%;
+                cursor: pointer;
+            }
+            .c32:hover {transform: scale(1.1, 1.1)}
+            .c311 {
+                color: gray;
+                text-decoration: none;
+            }
+            #dssp {
+                width: 100%;
+                height: auto;
+                font-size: 24px;
+                border: 1px solid black;
+                border-radius: 10px;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+            }    
+            #dssp div {
+                float: left;
+                margin: 5%;
+                padding-top: 20px;
+            }
+            #dssp img {
+                width: 300px;
+                height: 300px;
+                margin: auto;
+                border: 1px solid black;
+                border-radius: 10px;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+            }
+            #dssp p {
+                text-align: center;
+                font-style: italic;
+                margin: 5%;
+            }
+            #detail {
+                width: 1000px;
+                height: 400px;
+                background-color: #CCC;
+                box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+                display: none;
+                position: fixed;
+                left: 170px;
+                top: 140px;
+                z-index: 2;
+                border: 2px solid black;
+                float: left;
+            }
+            #hinh {
+                width: 400px; 
+                height: 400px; 
+                float: left;
+                box-sizing: border-box;
+            }
+            #infor {
+                font-size: 24px;
+                width: 600px; 
+                height: 400px; 
+                padding-left: 20px;
+                padding-top: 45px;
+                float: left;
+                box-sizing: border-box;
+            }         
+            #detail span {
+                position: absolute;
+                right: 8px;
+                top: 3px;
+                cursor: pointer;
+            }
+            #chuyenpage {
+                width: 90%;
+                margin-left: 5%;
+                border-top: 2px solid black;
+                border-bottom: 2px solid black;
+                height: 50px;
+                float: left;
+                box-sizing: border-box; 
+                text-align: center;
+                font-size: 20px;
+                padding-left: 510px;
+                margin-top: 20px;
+            }
+            .chuyen1 {
+                width: 35px;
+                height: 35px;
+                float: left;
+                margin-right: 3px;
+                box-sizing: border-box;
+                background-image: url(img/pre.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                margin-top: 6px;
+                cursor: pointer;
+            }
+            .chuyen2 {
+                text-align: center;
+                padding-top: 4px;
+                margin-top: 6px;
+                border: 1px solid black;
+                width: 35px;
+                height: 35px;
+                float: left;
+                margin-right: 3px;
+                box-sizing: border-box;
+                transition: all 1s;
+                cursor: pointer;
+
+            }
+            .chuyen2:hover {transform: scale(1.1,1.1)}
+            .chuyen3 {
+                width: 35px;
+                height: 35px;
+                float: left;
+                margin-right: 3px;
+                box-sizing: border-box;
+                background-image: url(img/next.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                margin-top: 6px;
+                cursor: pointer;
+            }
+            .chuyen21 {
+                color: black;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body onload="display()">
+        <div id="d2">
+            <a><b>Home</b></a> &rsaquo;
+            <p><b>&rsaquo;</b> &nbsp; Menu &nbsp; <b>&rsaquo;</b> &nbsp; Meat & Fish</p>
+        </div>
+        <div id="d3">
+            <h1>CATEGORY</h1>
+            <div class="c31">
+                <p><a class="c311" href="fruit.html" target="_self"><b>Vegetable & Fruit</b></a></p>
+            </div>
+            <div class="c32">
+                <p><a class="c311" href="meat.html" target="_self"><b>Meat & Fish</b></a></p>
+            </div>
+        </div>
+        <div id="dssp">
+
+        </div>
+        <div id="detail">
+            <img src="" id="hinh">
+            <div id="infor">
+
+            </div>
+
+
+            <span onclick="closeDetail()">Close [X]</span>
+        </div>
+        <div id="chuyenpage">
+            <div class="chuyen1"></div>
+            <div class="chuyen2"><a class="chuyen21" href="meat.html" target="_self">1</a></div>
+            <div class="chuyen2"><a class="chuyen21" href="meat2.html" target="_self">2</a></div>
+            <div class="chuyen3"></div>
+        </div>
+    </body>
+</html>

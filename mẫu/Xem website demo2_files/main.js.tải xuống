@@ -1,0 +1,248 @@
+jQuery(function() {
+
+  /* Moreview */
+  $('.more-views .swiper-slide:first-child').addClass('active');
+  $('.thumb-link').click(function() {  
+    $('.more-views .swiper-slide').removeClass('active');
+    $(this).parent().addClass('active');
+  }); 
+
+
+  if(jQuery('#rev_slider').length > 0)
+    jQuery('#rev_slider').show().revolution({
+      dottedOverlay: 'none',
+      delay: 8000,
+      startwidth: 1920,
+      startheight: 858,
+
+      hideThumbs:200,
+      thumbWidth:100,                            
+      thumbHeight:50, 
+      thumbAmount:5,
+
+      navigationType:"both",                  
+      navigationArrows:"",        
+      navigationStyle: 'preview3',             
+      touchenabled:"on",                      
+      onHoverStop:"on",        
+
+      navOffsetHorizontal:0,
+      navOffsetVertical:50,
+
+      swipe_velocity: 0.7, 
+      swipe_min_touches: 1,
+      swipe_max_touches: 1,
+      drag_block_vertical: false,
+
+      spinner: 'spinner2',
+      keyboardNavigation: 'on',
+
+      navigationHAlign: 'center',
+      navigationVAlign: 'bottom',
+      navigationHOffset: 20,
+      navigationVOffset: 20,
+
+      soloArrowLeftHalign: '',
+      soloArrowLeftValign: '',
+      soloArrowLeftHOffset: 0,
+      soloArrowLeftVOffset: 0,
+
+      soloArrowRightHalign: '',
+      soloArrowRightValign: '',
+      soloArrowRightHOffset: 0,
+      soloArrowRightVOffset: 0,
+
+      shadow: 0,
+      fullWidth: 'on',
+      fullScreen: 'off', 
+
+      stopLoop: 'off',
+      stopAfterLoops: -1,
+      stopAtSlide: -1,
+
+      shuffle: 'off',
+      autoHeight: 'on',
+      forceFullWidth: 'off',
+      hideTimerBar: 'on',
+
+      hideNavDelayOnMobile: 1500,
+      hideThumbsOnMobile: 'off',
+      hideBulletsOnMobile: 'off',
+      hideArrowsOnMobile: 'off',
+      hideThumbsUnderResolution: 0,
+
+      hideSliderAtLimit: 0,
+      hideCaptionAtLimit: 0,
+      hideAllCaptionAtLilmit: 0,
+      startWithSlide: 0
+    });
+  /* End Home Slider */
+});
+
+function aweMaps(mapElement) {
+  if (! mapElement) {
+    mapElement = '#contact-map';
+  }
+
+  var map = new GMaps({
+    el: mapElement,
+    lat: $(mapElement).data('lat'),
+    lng: $(mapElement).data('lng'),
+
+    draggable: true,
+    scrollwheel: false
+  });
+
+  map.addMarker({
+    lat: $(mapElement).data('lat'),
+    lng: $(mapElement).data('lng'),
+  });
+}
+
+/* WOW */
+wow = new WOW(
+  {
+    animateClass: 'animated',
+    offset:       100,
+    callback:     function(box) {
+      console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+    }
+  }
+);
+wow.init();
+
+
+/* Back to top */
+$(window).scroll(function () {
+  if ($(this).scrollTop() > 50) {
+    $('.back-to-top').addClass('show');
+  } else {
+    $('.back-to-top').removeClass('show');
+  }
+});
+
+
+$( window ).load(function() {
+  /* Page loader */
+  $( 'body' ).addClass( 'loaded' );
+  setTimeout(function () {
+    $('#pageloader').fadeOut();
+  }, 500);
+});
+
+(function($) {
+  "use strict";
+  $(document).ready(function() {
+
+    /* Back to top */
+    $('.back-to-top').on( 'click', function(e) {
+      e.preventDefault(); 
+      $("html, body").animate({
+        scrollTop: 0
+      }, 500);
+    });
+
+
+    /* OWL carousel */
+    $(".owl-carousel-play .owl-carousel").each( function(){
+      var config = {
+        loop: $(this).data('loop'),
+        nav: $(this).data('nav'),
+        navText: ["<i class='revicon-angle-left'></i>","<i class='revicon-angle-right'></i>"], 
+        margin: $(this).data('margin'),
+        items: $(this).data('items'),
+        lazyLoad : $(this).data('lazyLoad'),        
+        dots: $(this).data('dots'),         
+        autoHeight: $(this).data('autoHeight'),
+        responsiveClass:true,
+        responsive:{
+          0:{
+            items:1,
+            nav:true
+          },
+          480:{
+            items:$(this).data('xs-items')       
+          },
+          768:{
+            items:$(this).data('sm-items')       
+          },
+          981:{
+            items:$(this).data('items')       
+          }
+
+        }
+      };
+      $(this).owlCarousel( config );        
+    });
+
+
+    $(".swiper-container").each( function(){
+      var config = {
+        spaceBetween: $(this).data('margin'),
+        slidesPerView: $(this).data('items'),
+        direction: $(this).data('direction'),
+        paginationClickable: true,
+        grabCursor: true 
+      };		
+      var swiper = new Swiper(this, config);
+
+    });
+
+
+    /* Tabs */
+    $(".e-tabs").each( function(){
+      $(this).find('.tabs-title li:first-child').addClass('current');
+      $(this).find('.tab-content').first().addClass('current');
+
+      $(this).find('.tabs-title li').click(function(){
+        var tab_id = $(this).attr('data-tab');
+
+        var url = $(this).attr('data-url');
+        $(this).closest('.e-tabs').find('.tab-viewall').attr('href',url);
+
+        $(this).closest('.e-tabs').find('.tabs-title li').removeClass('current');
+        $(this).closest('.e-tabs').find('.tab-content').removeClass('current');
+
+        $(this).addClass('current');
+        $(this).closest('.e-tabs').find("#"+tab_id).addClass('current');
+      });    
+
+    });
+
+
+    /* Burger Menu */
+    $('.burger-control').on( 'click', function(e) {
+      $( '#popup-burger' ).toggleClass('popup-open');
+      $(this).toggleClass('active');
+      e.preventDefault();
+    });
+
+    $( '.popup-close' ).on( 'click', function(e) {
+      e.preventDefault();
+      $( this ).parents( '.popup' ).removeClass( 'popup-open' );
+    });
+
+    /*  [ Mouse click scroll down ]         - - - - - - - - - - - - - - - - - - - - */
+    $( '.mouse-scroll' ).on( 'click', function(e) {
+      e.preventDefault();
+      $("html, body").animate({
+        scrollTop: $( window ).height()
+      }, 700, function() {
+        $('.sticky-wrapper').addClass('is-sticky');
+      });
+    });
+
+    /* Tag */
+    var minfontSize = 10;
+    var maxfontSize = 24;
+
+    $('.block-blog-tags').find('a').each(function(e){
+      $(this).css("font-size", randumNumber(minfontSize, maxfontSize));
+    });
+
+    function randumNumber(min, max){
+      return Math.floor(Math.random()*(max-min+1)+min);
+    }
+
+  });
+})(jQuery);
